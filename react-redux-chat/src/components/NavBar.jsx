@@ -6,7 +6,7 @@ class NavBar extends React.Component {
 		return (
 			<nav>
 			  <div className="nav-wrapper red darken-1">
-			    <a className="brand-logo right">React Basic</a>
+			    <a className="brand-logo right">Chat</a>
 			    <ul id="nav-mobile" className="left hide-on-med-and-down">
 			      <li><a onClick={this.props.addUser}>Generar Nuevo Usuario</a></li>
 			      <li><a onClick={this.props.createResponse}>Enviar Mensaje Chat</a></li>

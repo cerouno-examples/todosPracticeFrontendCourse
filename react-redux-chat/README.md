@@ -1,29 +1,3 @@
-# frontend-week5
-Contenido para la quinta semana del curso de Frontend
-
-Chat
-userList: [], addUser(newUsername)
-currentChat: null, selectChat(selecteUsername)
-chats: [], addMessage(newMessage)
-appTitle: 'React Chat'
-
-chats : {
-  userName: {
-    userName,
-    messageList
-  }
-}
-
-addUser(newUsername)
-
-addMessage(newMessage)
-
-selectChat(selecteUsername)
-
-
-
-
-
 # cheatSheet React
 ## Nuevo Componente
 ```
@@ -52,12 +26,12 @@ componentWillUnmount() {}
 ## PropTypes
 ```
 _componentName_.propTypes = {
-  function: React.PropTypes.func, //.isRequired
-  bool: React.PropTypes.bool,
-  string: React.PropTypes.string,
-  number: React.PropTypes.number,
-  array: React.PropTypes.array,
-  object: React.PropTypes.object,
+  function:PropTypes.func, //.isRequired
+  bool: PropTypes.bool,
+  string: PropTypes.string,
+  number: PropTypes.number,
+  array: PropTypes.array,
+  object: PropTypes.object,
 }
 ```
 
@@ -82,6 +56,11 @@ _componentName_.propTypes = {
 > Eliminar la propiedad que se le pasa en el arreglo de string en orden
 
 ## Redux
+> ### Component vs Container
+> Component es un componente desconectado, nativo de react que puede alterar su propio estado y recibir props o disparar actions desde propTypes.
+> Container es el componente conectado al store para recibir sus props desde el state general de la aplicacion
+
+
 > ### connect(mapStateToProps, actionCreator) (Component)
 > Conectar el componente al store (appState) de redux,
 > mapStateToProps es la funcion que describe que datos del store se le pasaran al componente
@@ -94,3 +73,14 @@ _componentName_.propTypes = {
 
 > ### reducers
 > Son funciones con un switch del tipo de action de redux, su funcion es alterar el state de la aplicacion utilizando metodos de immutable de preferencia
+
+> ### MIddlewares
+> Son funciones que interceptan el flujo de datos (action => reducer => Store), para generar side effects
+> import { createStore, applyMiddleware } from 'redux';
+> import { Provider } from 'react-redux';
+> const createStoreWithMiddleware = applyMiddleware(middles)(createStore);
+> const store = createStoreWithMiddleware(reducers, initialState);
+
+> ### MIddleware: Thunk
+> Middlewara que hace que el store/reducer pueda recibir functions en vez de objetos, permitiendo llamadas asincronas
+> ActionMaker: action: () => (dispatch, getState) => {dispatch()}
